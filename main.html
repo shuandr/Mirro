@@ -1,0 +1,60 @@
+<!-- ng-view -->
+ <div class="grid-x align-center-middle">
+     <div class="cell">
+         <ul class="menu align-center filters gold s-bold">
+             <li ng-repeat="style in data.styles" ng-click="selectStyle($index)" ng-class="{menuCatSel: $index == menuCatSel}"> {[{style.name}]}</li>
+         </ul>
+     </div>
+     <div class="cell">
+         <ul class="menu align-center filters gold s-bold">
+             <li ng-repeat="color in langData.colors" ng-click="selectColor($index)" ng-class="{menuColorSel: $index == menuColorSel}"> {[{color.name}]}</li>
+             <li class="sort-btn" ng-click="sort('price')"><i class="toggle fas fa-sort-amount-down-alt"></i>price
+             </li>
+             <li class="sort-btn" ng-click="sort('width')"> <i class="toggle fas fa-sort-amount-down-alt"></i>width
+             </li>
+         </ul>
+     </div>
+ </div>
+ <div id="mirrors">
+     <div class=" grid-x small-up-2  large-up-3 xxlarge-up-4" data-equalizer data-equalize-by-row="true">
+         <div class="cell fade" style="" ng-repeat="mirror in allProducts | filter: selectedStyle | filter: selectedColor | orderBy:sortKey:reverse">
+             <div class="product-card" data-equalizer-watch>
+                 <div class="grid-y white">
+                     <div class="cell">
+                         <a href="#/mirror" ng-click="selectMirror($index)">
+                             <img class=" " src="assets/img/mirrors/thumbs/{[{mirror.id}]}.webp" alt="">
+                         </a>
+                     </div>
+                     <div class="cell">
+                         <div class="grid-x align-bottom">
+                             <div class="cell medium-auto">
+                                 <div class="grid-x ">
+                                     <div class="cell medium-6 pre"><span class="descr s-bold">{[{lng.mWidth}]}</span><br>{[{mirror.mWidth}]} mm</div>
+                                     <div class="cell medium-6 show-for-medium pre"><span class="descr s-bold">{[{lng.fWidth}]}</span><br>{[{mirror.width}]} mm</div>
+                                 </div>
+                             </div>
+                             <div class="cell medium-shrink gold text-right">
+                                 <div class="grid-x align-bottom">
+                                     <div class="cell auto text-right">
+                                         <div class="pre gold price">{[{currCurr.smbl}]} {[{mirror.price * currCurr.rate | currency :"": 0}]}</div>
+                                     </div>
+                                     <div class="cell shrink ">
+                                         <button type="button" ng-click="addToCart(mirror)" class="hollow button small add-cart-btn">
+                                             <i class="fas fa-cart-plus fa-2x gold"></i></button>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div><br>
+ <div class="grid-x">
+     <div class="cell text-center">
+         <a type="button" href="#/checkout" ng-click="countSum()" class="gold button cart-btn uppercase">
+             <i class="fas fa-shopping-cart fa-2x"></i> <span>{[{cartQuant}]}</span></a>
+         <br><br>
+     </div>
+ </div>

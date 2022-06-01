@@ -1,0 +1,130 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIRRO | Exclusive framed mirrors from Ukraine</title>
+    <meta name="description" content="Exclusive framed mirrors from Ukraine">
+    <meta property="og:image" content="https://mirro.rama.lviv.ua/og-img.webp">
+    <meta property="og:url" content="https://mirro.rama.lviv.ua/index.html" />
+    <meta property="og:title" content="MIRRO" />
+    <meta property="og:description" content="Exclusive framed mirrors from Ukraine" />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="assets/css/app.css">
+    <script src="https://kit.fontawesome.com/0caeff61d9.js" crossorigin="anonymous"></script>
+    <!-- icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#181824">
+    <meta name="msapplication-TileColor" content="#181824">
+    <meta name="theme-color" content="#181824">
+</head>
+
+<body>
+    <div id="preloader" class="grid-x dark-bg align-center-middle">
+        <div class="cell text-center" id="pre-logo">
+            <img src="assets/img/Mirro_logo.svg">
+        </div>
+    </div>
+    <div ng-app="mirro" ng-controller="mirroCtrl" ng-keyup="key($event)" tabindex="1">
+        <div class="dark-bg" style="min-height: 100vh;">
+             <div id="addedCartMsg" style="display: none;">
+            <div class="grid-x align-center-middle">
+                <div class="cell large-8">
+                    <h5 class="uppercase text-center s-bold">товар додано у кошик</h5>
+                </div>
+            </div>
+        </div>
+            <!-- CART VIEW -->
+            <div id="cartView" ng-show="!checkoutView" style="display: none;">
+                <div ng-show="emptyCart" class="cell empty-cart gold s-bold text-center">{[{lng.emptyCart}]}</div>
+                <div ng-repeat="mirror in mirrorCart" class="grid-x grid-padding-x align-bottom cart-order">
+                    <div class="cell small-7">
+                        <img src="assets/img/mirrors/thumbs/{[{mirror.id}]}.webp" alt="">
+                    </div>
+                    <div class="cell small-5 frame-descr ">
+                        <span>{[{mirror.mWidth}]} mm</span>
+                        <div class="price gold s-bold">
+                            {[{currCurr.smbl}]} {[{mirror.price * currCurr.rate | currency :"": 0}]}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <header>
+                <div id="top" class="grid-x white blk-ovrl-bg align-center-middle ">
+                    <div class="cell shrink  text-right ">
+                        <a href="#/main" ng-show="!mainView" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+                    </div>
+                    <div class="cell auto">
+                        <a href="#/main"><img class="main-logo" src="assets/img/Mirro_logo.svg" alt="на головну"></a>
+                    </div>
+                    <div class="cell shrink">
+                        <ul>
+                            <li class="show-for-medium">
+                                <a class="tel gold" href="tel://{[{data.tel1}]}"><i class="fas fa-phone-square"></i> {[{data.telView1}]}</a>
+                                <a href="viber://chat?number={[{data.vbr}]}"><i class="fab fa-viber viber"></i></a>
+                            </li>
+                            <li>
+                                <select class="currency-select" ng-model="currCurr" ng-options="x.smbl for x in data.currencies">
+                                </select>
+                            </li>
+                            <li ng-show="mainView">
+                                <div class="lang-select s-bold gold" ng-click="changeLang()">{[{setLang}]}</div>
+                            </li>
+                            <li ng-show="!checkoutView">
+                                <div id="checkout">
+                                    <a type="button" href="#/checkout" ng-click="countSum()" class=" button small cart-btn">
+                                        <i class="fas fa-shopping-cart fa-2x"></i><span>{[{cartQuant}]}</span></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>        <!-- ng-view -->
+            <div ng-view class="main"></div>
+            <footer class="blk-ovrl-bg"><br>
+                <div class="grid-x grid-padding-x align-center">
+                    <div class="cell large-8">
+                        <div class="grid-x grid-padding-x text-center align-center-middle">
+                            <div class="cell medium-4 small-order-2 medium-order-1">
+                                <a class="tel" href="tel://{[{data.tel1}]}"><i class="fas fa-phone-square"></i> {[{data.telView1}]}</a>
+                                <a href="viber://add?number={[{data.vbr}]}"><i class="fab fa-viber fa-2x"></i></a><br>
+                                <a href="mailto:{[{data.email}]}"> {[{data.email}]}</a>
+                            </div>
+                            <div class="cell small-8 medium-4 small-order-1 medium-order-2 align-self-center">
+                                <a href="#/main"><img src="assets/img/Mirro_logo.svg" alt="на головну" style="padding: 2vh;"></a>
+                            </div><br>
+                            <div class="cell medium-4 small-order-3 medium-order-3">
+                                <a class="tel" href="tel://{[{data.tel2}]}"><i class="fas fa-phone-square"></i> {[{data.telView2}]}</a><br>
+                                <a href="https://t.me/{[{data.tlgrm}]}" target="_blank"><i class="fab fa-telegram fa-2x soc-icon"></i></a>
+                                <a href="https://www.facebook.com/{[{data.fb}]}/" target="_blank">
+                                    <i class="fab fa-facebook-square fa-2x soc-icon"></i></a>
+                                <a href="https://www.instagram.com/{[{data.insta}]}/" target="_blank"> <i class="fab fa-instagram fa-2x soc-icon"></i></a>
+                            </div>
+                            <div class="cell text-center small-order-4 medium-order-4"><br>
+                                <h6 class="uppercase gold pre">powered by <a href="https://rama.lviv.ua" target="_blank"><img src="assets/img/Klnd-logo-EN.svg" style="width: 120px;" alt=""></a> & <a href="https://shuandr.lviv.ua" target="_blank"><img src="assets/img/shu-logo.svg" style="width: 40px;" alt=""></a>
+                                </h6><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>    </div>
+    
+    </div>
+    <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-route.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-animate.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-sanitize.min.js"></script>
+    <script src="assets/js_plugins/myAngular.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="assets/js_plugins/angular-slick.js"></script>
+</body>
+
+</html>

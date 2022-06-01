@@ -1,0 +1,193 @@
+{
+    "common":
+    {
+
+        "tel1": "+380972624656",
+        "telView1": "097-262-46-56",
+        "tel2": "+380505329482",
+        "telView2": "050-53-29-482",
+        "vbr": "%2B380972624656",
+        "tlgrm": "kleynodlviv",
+        "fb": "kleynod.lviv",
+        "insta": "kleynod_framegallery",
+        "email": "shuandr@gmail.com",
+        "currencies": [
+        {
+            "id": "EUR",
+            "rate": 1,
+            "smbl": "€"
+        },
+        {
+            "id": "USD",
+            "rate": 1.07,
+            "smbl": "$"
+        },
+        {
+            "id": "EUR",
+            "rate": 36,
+            "smbl": "₴"
+        }],
+        "styles": [
+        {
+            "id": "",
+            "name": "all"
+        },
+        {
+            "id": "clsc",
+            "name": "classic"
+        },
+        {
+            "id": "mdrn",
+            "name": "modern"
+        },
+        {
+            "id": "ardc",
+            "name": "art-deco"
+        },
+        {
+            "id": "arnv",
+            "name": "art nouveau"
+        },
+        {
+            "id": "slk",
+            "name": "sleek"
+        },
+        {
+            "id": "orn",
+            "name": "ornamental"
+        },
+        {
+            "id": "fsn",
+            "name": "fusion"
+        },
+        {
+            "id": "wbsb",
+            "name": "wabi-sabi"
+        }]
+    },
+    "lang":
+    {
+        "address":
+        {
+            "ua": "Львів, вул. Коперника, 20",
+            "en": "Lviv, 20 Kopernyka str"
+        },
+        "mWidth":
+        {
+            "ua": "ширина дзеркала",
+            "en": "mirror width"
+        },
+        "fWidth":
+        {
+            "ua": "загальна ширина",
+            "en": "full width"
+        },
+        "emptyCart":
+        {
+            "ua": "наразі кошик порожній",
+            "en": "cart is still empty"
+        },
+        "chcktH":
+        {
+            "ua": "оформлення замовлення",
+            "en": "checkout"
+        },
+        "ttlSum":
+        {
+            "ua": "загальна сума",
+            "en": "total sum"
+        },
+        "rqrd":
+        {
+            "ua": "обов’язкові поля",
+            "en": "required"
+        },
+        "name":
+        {
+            "ua": "ім’я",
+            "en": "name"
+        },
+        "tlphn":
+        {
+            "ua": "телефон",
+            "en": "phone"
+        },
+        
+        "cmmnt":
+        {
+            "ua": "примітки",
+            "en": "comments"
+        },
+        "dlvry":
+        {
+            "ua": "доставка",
+            "en": "delivery"
+        },
+        "self":
+        {
+            "ua": "самовивіз з офісу",
+            "en": "by yourself"
+        },
+        "newPostOff":
+        {
+            "ua": "на відділення Нової пошти",
+            "en": "Nova Poshta office"
+        },
+        "dlvrAddress":
+        {
+            "ua": "на адресу",
+            "en": "address"
+        },
+        "payment":
+        {
+            "ua": "оплата",
+            "en": "payment"
+        },
+        "card":
+        {
+            "ua": "на картку",
+            "en": "card"
+        },
+        "cash":
+        {
+            "ua": "готівка при отриманні",
+            "en": "cash"
+        },
+        
+        "send":
+        {
+            "ua": "надіслати",
+            "en": "send"
+        },
+        
+            "thankMsg":
+        {
+            "ua": "Дякуємо! Замовлення прийнято \nНезабаром ми вам зателефонуємо для уточнення деталей",
+            "en": "Thank you! Order accepted. \nWe will call you shortly to clarify the details"
+        },
+
+
+
+        "colors": [
+        {
+            "id": "",
+            "nameEN": "all",
+            "nameUA": "всі"
+        },
+        {
+            "id": "slvr",
+            "nameEN": "silver",
+            "nameUA": "срібний"
+        },
+        {
+            "id": "gld",
+            "nameEN": "gold",
+            "nameUA": "золотий"
+        },
+        {
+            "id": "blk",
+            "nameEN": "black",
+            "nameUA": "чорний"
+        }]
+    }
+}

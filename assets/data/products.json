@@ -1,0 +1,91 @@
+[
+{
+    "id": "001",
+    "tags": "mdrn-ardc-slk-slvr",
+    "mWidth": 180,
+    "width": 320,
+    "price": 48,
+    "titleUA": "Восьмикутне дзеркало в срібній рамі",
+    "titleEN": "Octagonal mirror in a silver frame",
+    "availability": "in stock"
+},
+{
+    "id": "002",
+    "tags": "mdrn-ardc-slk-gld",
+    "mWidth": 180,
+    "width": 320,
+    "price": 48,
+    "titleUA": "Восьмикутне дзеркало в золотій рамі",
+    "titleEN": "Octagonal mirror in a golden frame",
+    "availability": "in stock"
+},
+{
+    "id": "003",
+    "tags": "mdrn-ardc-fsn-slk",
+    "mWidth": 180,
+    "width": 320,
+    "price": 27,
+    "titleUA": "Восьмикутне дзеркало в рамі комбінованій з золотих на срібних сегментів",
+    "titleEN": "Octagonal mirror in a combined silver/gold frame",
+    "availability": "in stock"
+},
+{
+    "id": "004",
+    "tags": "mdrn-ardc-slk-gld",
+    "mWidth": 180,
+    "width": 340,
+    "price": 48,
+    "titleUA": "Восьмикутне дзеркало в срібній з золотим рамі",
+    "titleEN": "Octagonal mirror in a silver with gold frame ",
+    "availability": "in stock"
+},
+{
+    "id": "005",
+    "tags": "ardc-blk-gld",
+    "mWidth": 180,
+    "width": 300,
+    "price": 56,
+    "titleUA": "Восьмикутне дзеркало в рамі в стилі арт-деко",
+    "titleEN": "Octagonal mirror in art-deco style frame",
+    "availability": "in stock"
+},
+{
+    "id": "006",
+    "tags": "arnv-orn-gld",
+    "mWidth": 180,
+    "width": 340,
+    "price": 64,
+    "titleUA": "Восьмикутне дзеркало в рамі в стилі ар-нуво",
+    "titleEN": "Octagonal mirror in art-nouveau style frame",
+    "availability": "in stock"
+},
+{
+    "id": "007",
+    "tags": "clsc-orn-blk",
+    "mWidth": 180,
+    "width": 370,
+    "price": 72,
+    "titleUA": "Восьмикутне дзеркало в чорній рамі",
+    "titleEN": "Octagonal mirror in a rich ornamental black frame",
+    "availability": "in stock"
+},
+{
+    "id": "008",
+    "tags": "clsc-orn-gld-blk",
+    "mWidth": 180,
+    "width": 370,
+    "price": 80,
+    "titleUA": "Восьмикутне дзеркало в чорно-золотій рамі",
+    "titleEN": "Octagonal mirror in a rich ornamental black/gold frame",
+    "availability": "in stock"
+},
+{
+    "id": "009",
+    "tags": "clsc-orn-gld",
+    "mWidth": 180,
+    "width": 370,
+    "price": 80,
+    "titleUA": "Восьмикутне дзеркало в золотій рамі",
+    "titleEN": "Octagonal mirror in a rich ornamental gold frame",
+    "availability": "in stock"
+}]
