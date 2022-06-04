@@ -1,121 +1,82 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <meta name="description" content="">
-    <meta property="og:image" content="https://mirro.rama.lviv.ua/">
-    <meta property="og:url" content="https://mirro.rama.lviv.ua/" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:type" content="website" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-    <link rel="stylesheet" href="assets/css/app.css">
-    <script src="https://kit.fontawesome.com/0caeff61d9.js" crossorigin="anonymous"></script>
-    <!-- icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#181824">
-    <meta name="msapplication-TileColor" content="#181824">
-    <meta name="theme-color" content="#181824">
-</head>
-
-<body>
-    <br>
-    <h3 class="uppercase gold text-center">{[{lng.chcktH}]}</h3>
-    <div id="mirrorOrder" class="grid-container big-shadow">
-        <div class="grid-x grid-padding-x ">
-            <div class="cell medium-6 dark-gold">
-                <div ng-show="emptyCart" class="cell empty-cart uppercase gold s-bold text-center">{[{lng.emptyCart}]}</div>
-                <div ng-repeat="mirror in mirrorCart" class="grid-x grid-padding-x cart-order">
-                    <div class="cell shrink">
-                        <img src="assets/img/mirrors/thumbs/{[{mirror.id}]}.webp" alt="">
-                    </div>
-                    <div class="cell auto  ">
-                        <div class=" pre"><span class="descr s-bold">{[{lng.mWidth}]}: </span>{[{mirror.mWidth}]} mm</div>
-                        <div class=" pre "><span class="descr s-bold">{[{lng.fWidth}]}: </span>{[{mirror.width}]} mm</div>
-                        <div class="price gold s-bold">
-                            {[{currCurr.smbl}]} {[{mirror.price * currCurr.rate | currency :"": 0}]}</div>
-                    </div>
-                    <div class="delete-item">
-                        <button ng-click="deleteFromCart($index)" class="button tiny alert">
-                            <i class="fas fa-ban fa-2x"></i>
-                        </button>
-                    </div>
-                </div>
-                <br>
-                <h4 class=" text-right price gold">{[{lng.ttlSum}]}: <span class=" s-bold">{[{currCurr.smbl}]} {[{totalSum * currCurr.rate | currency :"": 0}]}</span></h4>
-            </div>
-            <div class="cell medium-6">
-                <form ng-submit="formSubmit()" id="gform" name="frameOrder">
-                    <br><span>* {[{lng.rqrd}]}</span><br><br>
-                    <div class="grid-x grid-padding-x ">
-                        <div class="cell  shrink ">
-                            <label class="form-sub" for="phone">{[{lng.name}]}* </label>
-                        </div>
-                        <div class="cell auto">
-                            <input type="text" id="name" name="ім’я" required>
-                        </div>
-                    </div>
-                    <div class="grid-x grid-padding-x ">
-                        <div class="cell shrink ">
-                            <label class="form-sub" for="phone">{[{lng.tlphn}]}* </label>
-                        </div>
-                        <div class="cell auto">
-                            <input type="tel" id="phone" ng-model="phone" name="телефон" value="" angular-mask="(000) 000-00-00" placeholder="000 000-00-00" required>
-                        </div>
-                    </div>
-                    <input type="email" id="mail" name="mail" autocomplete="email" placeholder="e-mail">
-                    <textarea rows="4" name="примітки" placeholder="{[{lng.cmmnt}]}"></textarea>
-                    <hr>
-                    <fieldset>
-                        <legend class="form-sub">{[{lng.dlvry}]}*</legend>
-                        <input type="radio" id="deliver-self" name="delivery" value="самовивіз">
-                        <label for="deliver-self">{[{lng.self}]}</label><br>
-                        <input type="radio" id="inputDeliveryNP" name="delivery" required value="на відділення Нової пошти">
-                        <label for="inputDeliveryNP">{[{lng.newPostOff}]}:</label><br>
-                        <textarea id="deliveryNP" rows="1" name="адреса НП" value="" style="display: none;" placeholder="місто/село, № відділення"></textarea>
-                        <input type="radio" id="inputDeliveryAddress" name="delivery" value="на адресу Новою поштою">
-                        <label for="inputDeliveryAddress">{[{lng.dlvrAddress}]}:</label>
-                        <textarea id="deliveryAddress" rows="1" name="адреса" value="" style="display: none;" placeholder="адреса"></textarea>
-                    </fieldset>
-                    <hr>
-                    <div class="form-sub">{[{lng.payment}]}*</div>
-                    <select name="оплата" required>
-                        <option value="картка">{[{lng.card}]}</option>
-                        <option value="готівка">{[{lng.cash}]}</option>
-                    </select>
-                    <input type="text" class="hide" name="коди рамок" ng-value="frameCodes" value=" ">
-                    <input type="text" class="hide" name="сума" ng-value="totalSum" value=" ">
-                    <div class="text-center">
-                        <input type="submit" class="button uppercase text-center" value="{[{lng.send}]}">&nbsp;&nbsp;
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div><br><br>
-    <div style="display:none;" id="thankyou_message" class=" text-center">
-        <div class="grid-x align-center-middle" style="height: 100%">
-            <div class="cell large-8 white-bg" style="padding: 1.2rem;">
-                <h5 class="gold s-bold pre">{[{lng.thankMsg}]}</h5><br>
-                <button id="thankyou-close" class=" button uppercase" data-close><i class="fas fa-times "></i>&nbsp; наздоровля!</button>
-            </div>
-        </div>
-    </div>
-    <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
-    <script src="https://code.angularjs.org/1.8.2/angular-route.min.js"></script>
-    <script src="https://code.angularjs.org/1.8.2/angular-animate.min.js"></script>
-    <script src="https://code.angularjs.org/1.8.2/angular-sanitize.min.js"></script>
-    <script src="assets/js_plugins/myAngular.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="assets/js_plugins/angular-slick.js"></script>
-</body>
-
-</html>
+<!-- ng-view -->
+ <br>
+ <h3 class="uppercase gold text-center">{[{lng.chcktH}]}</h3>
+ <div id="mirrorOrder" class="grid-container big-shadow">
+     <div class="grid-x grid-padding-x ">
+         <div class="cell medium-6 dark-gold">
+             <div ng-show="emptyCart" class="cell empty-cart uppercase gold s-bold text-center">{[{lng.emptyCart}]}</div>
+             <div ng-repeat="mirror in mirrorCart" class="grid-x grid-padding-x cart-order">
+                 <div class="cell shrink">
+                     <img src="assets/img/mirrors/thumbs/{[{mirror.id}]}.webp" alt="">
+                 </div>
+                 <div class="cell auto  ">
+                     <div class=" pre"><span class="descr s-bold">{[{lng.mWidth}]}: </span>{[{mirror.mWidth}]} mm</div>
+                     <div class=" pre "><span class="descr s-bold">{[{lng.fWidth}]}: </span>{[{mirror.width}]} mm</div>
+                     <div class="price gold s-bold">
+                         {[{currCurr.smbl}]} {[{mirror.price * currCurr.rate | currency :"": 0}]}</div>
+                 </div>
+                 <div class="delete-item">
+                     <button ng-click="deleteFromCart($index)" class="button tiny alert">
+                         <i class="fas fa-ban fa-2x"></i>
+                     </button>
+                 </div>
+             </div>
+             <br>
+             <h4 class=" text-right price gold">{[{lng.ttlSum}]}: <span class=" s-bold">{[{currCurr.smbl}]} {[{totalSum * currCurr.rate | currency :"": 0}]}</span></h4>
+         </div>
+         <div class="cell medium-6">
+             <form ng-submit="formSubmit()" id="gform" name="frameOrder">
+                 <br><span>* {[{lng.rqrd}]}</span><br><br>
+                 <div class="grid-x grid-padding-x ">
+                     <div class="cell  shrink ">
+                         <label class="form-sub" for="phone">{[{lng.name}]}* </label>
+                     </div>
+                     <div class="cell auto">
+                         <input type="text" id="name" name="ім’я" required>
+                     </div>
+                 </div>
+                 <div class="grid-x grid-padding-x ">
+                     <div class="cell shrink ">
+                         <label class="form-sub" for="phone">{[{lng.tlphn}]}* </label>
+                     </div>
+                     <div class="cell auto">
+                         <input type="tel" id="phone" ng-model="phone" name="телефон" value="" angular-mask="(000) 000-00-00" placeholder="000 000-00-00" required>
+                     </div>
+                 </div>
+                 <input type="email" id="mail" name="mail" autocomplete="email" placeholder="e-mail">
+                 <textarea rows="4" name="примітки" placeholder="{[{lng.cmmnt}]}"></textarea>
+                 <hr>
+                 <fieldset>
+                     <legend class="form-sub">{[{lng.dlvry}]}*</legend>
+                     <input type="radio" id="deliver-self" name="delivery" value="самовивіз">
+                     <label for="deliver-self">{[{lng.self}]}</label><br>
+                     <input type="radio" id="inputDeliveryNP" name="delivery" required value="на відділення Нової пошти">
+                     <label for="inputDeliveryNP">{[{lng.newPostOff}]}:</label><br>
+                     <textarea id="deliveryNP" rows="1" name="адреса НП" value="" style="display: none;" placeholder="місто/село, № відділення"></textarea>
+                     <input type="radio" id="inputDeliveryAddress" name="delivery" value="на адресу Новою поштою">
+                     <label for="inputDeliveryAddress">{[{lng.dlvrAddress}]}:</label>
+                     <textarea id="deliveryAddress" rows="1" name="адреса" value="" style="display: none;" placeholder="адреса"></textarea>
+                 </fieldset>
+                 <hr>
+                 <div class="form-sub">{[{lng.payment}]}*</div>
+                 <select name="оплата" required>
+                     <option value="картка">{[{lng.card}]}</option>
+                     <option value="готівка">{[{lng.cash}]}</option>
+                 </select>
+                 <input type="text" class="hide" name="коди рамок" ng-value="frameCodes" value=" ">
+                 <input type="text" class="hide" name="сума" ng-value="totalSum" value=" ">
+                 <div class="text-center">
+                     <input type="submit" class="button uppercase text-center" value="{[{lng.send}]}">&nbsp;&nbsp;
+                 </div>
+             </form>
+         </div>
+     </div>
+ </div><br><br>
+ <div style="display:none;" id="thankyou_message" class=" text-center">
+     <div class="grid-x align-center-middle" style="height: 100%">
+         <div class="cell large-8 white-bg" style="padding: 1.2rem;">
+             <h5 class="gold s-bold pre">{[{lng.thankMsg}]}</h5><br>
+             <button id="thankyou-close" class=" button uppercase" data-close><i class="fas fa-times "></i>&nbsp; наздоровля!</button>
+         </div>
+     </div>
+ </div>
