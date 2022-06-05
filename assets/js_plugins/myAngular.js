@@ -48,7 +48,7 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
         $scope.checkoutView = ($route.current.templateUrl !== 'checkout.html') ? false : true;
 
         if ($route.current.templateUrl == 'mirror.html') {
-            $location.search( "mirror", $scope.selectedMirror.id );
+            $location.search("mirror", $scope.selectedMirror.id);
         }
 
     });
@@ -105,46 +105,12 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
 
         });
 
-
-        /* $scope.mainSlickConfig = {
-             arrows: false,
-             autoplay: true,
-             pauseOnHover: false,
-             autoplaySpeed: 2400,
-             speed: 1200,
-             fade: true
-         };
-         $scope.objSlickConfig = {
-             centerMode: true,
-             variableWidth: true,
-             arrows: false,
-             autoplay: true,
-             pauseOnHover: false,
-             speed: 800,
-             autoplaySpeed: 2400
-         };
-
-         $scope.slickLoaded = true;
-         $scope.gallerySlickConfig = {
-               dots: true,
-             responsive: [{
-                 breakpoint: 1200,
-                 settings: {
-                     arrows: false
-                 }
-             }],
-             event: {
-                 init: function(event, slick) {
-                     slick.slickGoTo($scope.selectedImg); // slide to correct index when init
-                 }
-             }
-         }*/
     });
 
     $scope.selectStyle = function(index) {
         $scope.selectedStyle = $scope.data.styles[index].id;
         $scope.menuCatSel = index;
-        $location.search("style", $scope.selectedStyle );
+        $location.search("style", $scope.selectedStyle);
 
     }
     $scope.selectColor = function(index, id) {
@@ -190,19 +156,15 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
     $scope.selectMirror = function(index) {
         $scope.selMrrIndx = index;
         $scope.selectedMirror = $scope.allProducts[index];
-        $location.search( "mirror", $scope.selectedMirror.id );
         $scope.setPrevNextMirrors(index);
         $scope.selectedMirror.avail == "sold" ?
             ($scope.availClass = "copper-bg", $scope.selectedMirror.availView = $scope.lng.soldOut) :
             $scope.selectedMirror.avail == "on demand" ?
             ($scope.availClass = "gold-bg", $scope.selectedMirror.availView = $scope.lng.onDmnd) :
             ($scope.availClass = "green-bg", $scope.selectedMirror.availView = $scope.lng.inStock)
-
-        $scope.selectVariant(0);
-    }
-
-    $scope.selectVariant = function(index) {
-        $scope.selectedVariant = index + 1;
+        if (!$scope.mainView) {
+            $location.search("mirror", $scope.selectedMirror.id);
+        }
     }
 
     $scope.setPrevNextMirrors = function(index) {
