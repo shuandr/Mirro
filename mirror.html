@@ -1,20 +1,24 @@
 <!-- ng-view -->
- <div class="grid-x grid-padding-x align-middle" style="position: relative;">
-     <div class="cell large-6 xxlarge-7 text-center" style="position: relative;">
-         <img class="" src="assets/img/mirrors/{[{selectedMirror.id}]}.webp" alt=""><br><br>
+ <div class="grid-x grid-padding-x align-middle ">
+     <div class="cell large-6 xxlarge-7 text-center">
+         <img class="ng-fade" src="assets/img/mirrors/{[{selectedMirror.id}]}.webp" alt=""><br><br>
      </div>
      <div class="cell large-6 xxlarge-5 white-bg" style="padding: 2.4vh;">
          <div class="grid-x grid-padding-x grid-padding-y" style="min-height:100%;">
-             <div class="cell ">
+             <div class="cell ng-fade">
                  <h3 class="dark s-bold">{[{selectedMirror.title}]}</h3>
+                 <br>    
                  <div class=" pre"><span class="descr s-bold">{[{lng.mWidth}]}: </span>{[{selectedMirror.mWidth}]} mm</div>
                  <div class=" pre "><span class="descr s-bold">{[{lng.fWidth}]}: </span>{[{selectedMirror.width}]} mm</div>
              </div>
              <div class="cell ">
                  <div class="grid-x grid-padding-x align-bottom">
-                     <div class="cell auto pre text-right gold price">{[{currCurr.smbl}]}<span class="s-bold">  {[{selectedMirror.price * currCurr.rate | currency :" ": 0 }]}</span></div>
-                     <div class="cell shrink gold">
-                         <button type="button" ng-click="addToCart(selectedMirror)" class="hollow button small add-cart-btn" >
+                     <div class="cell auto  text-right gold ">
+                         <div class="white avail s-bold {[{availClass}]}">{[{selectedMirror.availView}]}</div>
+                         <div class="pre price">{[{currCurr.smbl}]}<span class="s-bold"> {[{selectedMirror.price * currCurr.rate | currency :" ": 0 }]}</span></div>
+                     </div>
+                     <div ng-if="selectedMirror.avail !== 'sold'" class="cell shrink gold">
+                         <button type="button" ng-click="addToCart(selectedMirror)" class="hollow button small add-cart-btn">
                              <i class="fas fa-cart-plus fa-2x gold"></i></button>
                      </div>
                  </div>

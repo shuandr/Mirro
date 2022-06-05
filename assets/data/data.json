@@ -82,10 +82,42 @@
             "ua": "загальна ширина",
             "en": "full width"
         },
+        "price":
+        {
+            "ua": "ціна",
+            "en": "price"
+        },
+        "width":
+        {
+            "ua": "ширина",
+            "en": "width"
+        },
+
+        "inStock":
+        {
+            "ua": "наявне",
+            "en": "in stock"
+        },
+        "onDmnd":
+        {
+            "ua": "на замовлення",
+            "en": "on demand"
+        },
+        "soldOut":
+        {
+            "ua": "продано",
+            "en": "sold out"
+        },
         "emptyCart":
         {
             "ua": "наразі кошик порожній",
             "en": "cart is still empty"
+        },
+
+        "addedToCard":
+        {
+            "ua": "товар додано у кошик",
+            "en": "item added to card"
         },
         "chcktH":
         {
@@ -112,7 +144,7 @@
             "ua": "телефон",
             "en": "phone"
         },
-        
+
         "cmmnt":
         {
             "ua": "примітки",
@@ -153,14 +185,14 @@
             "ua": "готівка при отриманні",
             "en": "cash"
         },
-        
+
         "send":
         {
             "ua": "надіслати",
             "en": "send"
         },
-        
-            "thankMsg":
+
+        "thankMsg":
         {
             "ua": "Дякуємо! Замовлення прийнято \nНезабаром ми вам зателефонуємо для уточнення деталей",
             "en": "Thank you! Order accepted. \nWe will call you shortly to clarify the details"

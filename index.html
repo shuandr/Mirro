@@ -34,13 +34,13 @@
     </div>
     <div ng-app="mirro" ng-controller="mirroCtrl" ng-keyup="key($event)" tabindex="1">
         <div class="dark-bg" style="min-height: 100vh;">
-             <div id="addedCartMsg" style="display: none;">
-            <div class="grid-x align-center-middle">
-                <div class="cell large-8">
-                    <h5 class="uppercase text-center s-bold">товар додано у кошик</h5>
+            <div id="addedCartMsg" style="display: none;">
+                <div class="grid-x align-center-middle">
+                    <div class="cell large-8">
+                        <h5 class="uppercase text-center s-bold">{[{lng.addedToCard}]}</h5>
+                    </div>
                 </div>
             </div>
-        </div>
             <!-- CART VIEW -->
             <div id="cartView" ng-show="!checkoutView" style="display: none;">
                 <div ng-show="emptyCart" class="cell empty-cart gold s-bold text-center">{[{lng.emptyCart}]}</div>
@@ -86,8 +86,9 @@
                         </ul>
                     </div>
                 </div>
-            </header>        <!-- ng-view -->
-            <div ng-view class="main"></div>
+            </header>        <div class="main">
+                <div ng-view class=" ng-fade"></div>
+            </div>
             <footer class="blk-ovrl-bg"><br>
                 <div class="grid-x grid-padding-x align-center">
                     <div class="cell large-8">
@@ -98,7 +99,7 @@
                                 <a href="mailto:{[{data.email}]}"> {[{data.email}]}</a>
                             </div>
                             <div class="cell small-8 medium-4 small-order-1 medium-order-2 align-self-center">
-                                <a href="#/main"><img src="assets/img/Mirro_logo.svg" alt="на головну" style="padding: 2vh;"></a>
+                                <a href="#/main"><img src="assets/img/Mirro_logo.svg" alt="на головну" style="padding: 3vh;"></a>
                             </div><br>
                             <div class="cell medium-4 small-order-3 medium-order-3">
                                 <a class="tel" href="tel://{[{data.tel2}]}"><i class="fas fa-phone-square"></i> {[{data.telView2}]}</a><br>
@@ -115,7 +116,6 @@
                     </div>
                 </div>
             </footer>    </div>
-    
     </div>
     <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.8.2/angular-route.min.js"></script>

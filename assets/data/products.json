@@ -7,7 +7,7 @@
     "price": 48,
     "titleUA": "Восьмикутне дзеркало в срібній рамі",
     "titleEN": "Octagonal mirror in a silver frame",
-    "availability": "in stock"
+    "avail": "in stock"
 },
 {
     "id": "002",
@@ -17,7 +17,7 @@
     "price": 48,
     "titleUA": "Восьмикутне дзеркало в золотій рамі",
     "titleEN": "Octagonal mirror in a golden frame",
-    "availability": "in stock"
+    "avail": "in stock"
 },
 {
     "id": "003",
@@ -27,7 +27,7 @@
     "price": 27,
     "titleUA": "Восьмикутне дзеркало в рамі комбінованій з золотих на срібних сегментів",
     "titleEN": "Octagonal mirror in a combined silver/gold frame",
-    "availability": "in stock"
+    "avail": "sold"
 },
 {
     "id": "004",
@@ -37,7 +37,7 @@
     "price": 48,
     "titleUA": "Восьмикутне дзеркало в срібній з золотим рамі",
     "titleEN": "Octagonal mirror in a silver with gold frame ",
-    "availability": "in stock"
+    "avail": "in stock"
 },
 {
     "id": "005",
@@ -47,7 +47,7 @@
     "price": 56,
     "titleUA": "Восьмикутне дзеркало в рамі в стилі арт-деко",
     "titleEN": "Octagonal mirror in art-deco style frame",
-    "availability": "in stock"
+    "avail": "on demand"
 },
 {
     "id": "006",
@@ -57,7 +57,7 @@
     "price": 64,
     "titleUA": "Восьмикутне дзеркало в рамі в стилі ар-нуво",
     "titleEN": "Octagonal mirror in art-nouveau style frame",
-    "availability": "in stock"
+    "avail": "sold"
 },
 {
     "id": "007",
@@ -67,7 +67,7 @@
     "price": 72,
     "titleUA": "Восьмикутне дзеркало в чорній рамі",
     "titleEN": "Octagonal mirror in a rich ornamental black frame",
-    "availability": "in stock"
+    "avail": "in stock"
 },
 {
     "id": "008",
@@ -77,7 +77,7 @@
     "price": 80,
     "titleUA": "Восьмикутне дзеркало в чорно-золотій рамі",
     "titleEN": "Octagonal mirror in a rich ornamental black/gold frame",
-    "availability": "in stock"
+    "avail": "in stock"
 },
 {
     "id": "009",
@@ -87,5 +87,5 @@
     "price": 80,
     "titleUA": "Восьмикутне дзеркало в золотій рамі",
     "titleEN": "Octagonal mirror in a rich ornamental gold frame",
-    "availability": "in stock"
+    "avail": "in stock"
 }]

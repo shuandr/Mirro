@@ -31,10 +31,11 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
     var urlQuery = $location.search();
 
     $scope.lng = {};
-    $scope.selectedStyle = "";
-    $scope.selectedColor = "";
+    $scope.selectedStyle = urlQuery.style ? urlQuery.style : "";
+    $scope.selectedColor = urlQuery.color ? urlQuery.color : "";
     $scope.emptyCart = !0;
     $scope.cartQuant = 0;
+    $scope.availClass = "green-bg";
     $scope.frameCodes = "MIRRO: ";
     if (navigator.language == "uk" || navigator.language == "ua") {
         $scope.setLang = "en";
@@ -47,8 +48,9 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
         $scope.checkoutView = ($route.current.templateUrl !== 'checkout.html') ? false : true;
 
         if ($route.current.templateUrl == 'mirror.html') {
-            $location.search({ mirror: $scope.selectedMirror.id });
+            $location.search( "mirror", $scope.selectedMirror.id );
         }
+
     });
 
     $scope.changeLang = function() {
@@ -80,8 +82,6 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
         }
     }
 
-
-
     // console.log($scope.selectedMirror.id);
 
     $http.get("assets/data/data.json").then(function(response) {
@@ -91,35 +91,20 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
 
         $http.get("assets/data/products.json").then(function(response) {
             $scope.allProducts = response.data;
+            $scope.changeLang();
             if (urlQuery.mirror) {
                 for (var i = $scope.allProducts.length - 1; i >= 0; i--) {
                     if (urlQuery.mirror == $scope.allProducts[i].id) {
-                        $scope.selectedMirror = $scope.allProducts[i];
-                        $scope.selMrrIndx = i;
-                        // $scope.menuCatSel = i;
+                        $scope.selectMirror(i);
                         break;
                     }
                 }
             } else {
-                $scope.selectedMirror = $scope.allProducts[0];
-                $scope.selMrrIndx = 0;
+                $scope.selectMirror(0);
             }
-            $scope.changeLang();
-            // $scope.selectedVariant = 1;
-            $scope.setPrevNextMirrors($scope.selMrrIndx);
+
         });
-        /*if (urlQuery.category) {
-            for (var i = $scope.data.works.length - 1; i >= 0; i--) {
-                if (urlQuery.category == $scope.data.works[i].name) {
-                    $scope.selectedCat = $scope.data.works[i];
-                    $scope.menuCatSel = i;
-                    break;
-                }
-            }
-        } else {
-            $scope.selectedCat = $scope.data.works[0];
-            $scope.menuCatSel = 0;
-        }*/
+
 
         /* $scope.mainSlickConfig = {
              arrows: false,
@@ -159,13 +144,13 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
     $scope.selectStyle = function(index) {
         $scope.selectedStyle = $scope.data.styles[index].id;
         $scope.menuCatSel = index;
-        $location.search({ style: $scope.selectedStyle });
+        $location.search("style", $scope.selectedStyle );
 
     }
-    $scope.selectColor = function(index) {
-        $scope.selectedColor = $scope.data.colors[index].id;
+    $scope.selectColor = function(index, id) {
+        $scope.selectedColor = id;
         $scope.menuColorSel = index;
-        $location.search({ color: $scope.selectedColor });
+        $location.search("color", $scope.selectedColor);
 
     }
 
@@ -205,8 +190,13 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
     $scope.selectMirror = function(index) {
         $scope.selMrrIndx = index;
         $scope.selectedMirror = $scope.allProducts[index];
-        $location.search({ mirror: $scope.selectedMirror.id });
+        $location.search( "mirror", $scope.selectedMirror.id );
         $scope.setPrevNextMirrors(index);
+        $scope.selectedMirror.avail == "sold" ?
+            ($scope.availClass = "copper-bg", $scope.selectedMirror.availView = $scope.lng.soldOut) :
+            $scope.selectedMirror.avail == "on demand" ?
+            ($scope.availClass = "gold-bg", $scope.selectedMirror.availView = $scope.lng.onDmnd) :
+            ($scope.availClass = "green-bg", $scope.selectedMirror.availView = $scope.lng.inStock)
 
         $scope.selectVariant(0);
     }
