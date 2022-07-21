@@ -1,15 +1,22 @@
 <!-- ng-view -->
  <div class="grid-x grid-padding-x align-middle ">
-     <div class="cell large-6 xxlarge-7 text-center">
-         <img class="ng-fade" src="assets/img/mirrors/{[{selectedMirror.id}]}.webp" alt=""><br><br>
+     <div class="cell large-6 xxlarge-5">
+         <div style="padding: 2.4vw;">
+             <slick settings="gallerySlickConfig" ng-if="slickLoaded">
+                 <!-- <img src="assets/img/mirrors/{[{selectedMirror.id}]}.webp" alt=""> -->
+                 <div style="max-height: 72vh;" ng-repeat="image in selectedMirror.imgs">
+                     <img style="max-height: 72vh; object-fit: contain; margin: auto;" src="assets/img/mirrors/{[{image}]}.webp" alt="">
+                 </div>
+             </slick>
+         </div>
      </div>
-     <div class="cell large-6 xxlarge-5 white-bg" style="padding: 2.4vh;">
+     <div class="cell large-auto" style="padding: 2.4vh;">
          <div class="grid-x grid-padding-x grid-padding-y" style="min-height:100%;">
-             <div class="cell ng-fade">
-                 <h3 class="dark s-bold">{[{selectedMirror.title}]}</h3>
-                 <br>    
-                 <div class=" pre"><span class="descr s-bold">{[{lng.mWidth}]}: </span>{[{selectedMirror.mWidth}]} mm</div>
-                 <div class=" pre "><span class="descr s-bold">{[{lng.fWidth}]}: </span>{[{selectedMirror.width}]} mm</div>
+             <div class="cell">
+                 <h3 class="gold ">{[{selectedMirror.title}]}</h3>
+                 <br>
+                 <div class="white pre"><span class="descr s-bold">{[{lng.mWidth}]}: </span>{[{selectedMirror.mWidth}]} mm</div>
+                 <div class="white pre "><span class="descr s-bold">{[{lng.fWidth}]}: </span>{[{selectedMirror.width}]} mm</div>
              </div>
              <div class="cell ">
                  <div class="grid-x grid-padding-x align-bottom">

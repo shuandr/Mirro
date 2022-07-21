@@ -37,6 +37,8 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
     $scope.cartQuant = 0;
     $scope.availClass = "green-bg";
     $scope.frameCodes = "MIRRO: ";
+    // $scope.slickLoaded = true;
+
     if (navigator.language == "uk" || navigator.language == "ua") {
         $scope.setLang = "en";
     } else {
@@ -50,7 +52,7 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
         if ($route.current.templateUrl == 'mirror.html') {
             $location.search("mirror", $scope.selectedMirror.id);
         }
-
+        // $scope.reInitSlick();
     });
 
     $scope.changeLang = function() {
@@ -82,6 +84,8 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
         }
     }
 
+
+
     // console.log($scope.selectedMirror.id);
 
     $http.get("assets/data/data.json").then(function(response) {
@@ -101,11 +105,20 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
                 }
             } else {
                 $scope.selectMirror(0);
-            }
+            };
 
         });
+        $scope.reInitSlick();
 
     });
+
+    $scope.reInitSlick = function() {
+        $scope.slickLoaded = false;
+        $timeout(function() {
+            $scope.slickLoaded = true;
+
+        }, 20);
+    }
 
     $scope.selectStyle = function(index) {
         $scope.selectedStyle = $scope.data.styles[index].id;
@@ -167,6 +180,18 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
         }
     }
 
+    $scope.gallerySlickConfig = {
+        dots: true,
+        // adaptiveHeight: true,
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+                arrows: false
+            }
+        }],
+
+    }
+
     $scope.setPrevNextMirrors = function(index) {
         let i = index;
         const cat = $scope.allProducts;
@@ -184,6 +209,8 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
         var newIndx = (i !== 0) ? --i : $scope.allProducts.length - 1;
         $scope.selectMirror(newIndx);
         $scope.setPrevNextMirrors(newIndx);
+        $scope.reInitSlick();
+
     }
 
     $scope.nextMirror = function() {
@@ -191,6 +218,8 @@ app.controller('mirroCtrl', function($scope, $http, $route, $routeParams, $locat
         var newIndx = (i < $scope.allProducts.length - 1) ? ++i : 0;
         $scope.selectMirror(newIndx);
         $scope.setPrevNextMirrors(newIndx);
+        $scope.reInitSlick();
+
     }
 
     $scope.key = function($event) {
